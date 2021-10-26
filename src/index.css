@@ -1,0 +1,43 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  font-family: Oswald;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+:root {
+  /*Colors*/
+  --main-gradient: linear-gradient(
+    348deg,
+    #82a0d5 0%,
+    #7f88d9 9.09%,
+    #8d7cdd 18.18%,
+    #a779e1 27.27%,
+    #c476e5 36.36%,
+    #e573e9 45.45%,
+    #ed70cf 54.55%,
+    #f06eae 63.64%,
+    #f46b8a 72.73%,
+    #f86e68 81.82%,
+    #fb9366 90.91%,
+    #ffbc63 100%
+  );
+  --black: #0a0102;
+  --bg-color: #fbfbfb;
+  --shadow-dark: -8px 8px 16px rgba(5, 5, 5, 0.04);
+  --pure-white: #fff;
+
+  --padding-body: 0.5rem;
+}
+
