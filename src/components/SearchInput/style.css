@@ -1,0 +1,90 @@
+/* ========== Search input ========== */
+
+.Search {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 358px;
+  min-width: 200px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in;
+}
+
+.Search:hover {
+  box-shadow: var(--shadow-dark);
+}
+
+.SearchLabel {
+  left: 0.8rem;
+  position: absolute;
+  font-size: 14px;
+  z-index: 10;
+  width: 5rem;
+  transition: opacity 0.5s ease-in-out, width 0.6s ease-in-out;
+}
+.SearchInput {
+  padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+  width: 100%;
+  position: relative;
+}
+.SearchInput:focus + .SearchLabel {
+  opacity: 0;
+  width: 0;
+}
+.SearchInput:not(:placeholder-shown) ~ .SearchLabel {
+  opacity: 0;
+}
+
+.SearchIcon {
+  --size: 18px;
+  position: absolute;
+  background: url("../assets/search-mobile.svg") center no-repeat;
+  width: var(--size);
+  height: var(--size);
+  right: 0.5rem;
+}
+
+.Search-border {
+  content: "";
+  position: absolute;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  right: -2px;
+  z-index: -1;
+  border-radius: 2px;
+  background-image: linear-gradient(
+    78.3deg,
+    #82a0d5 5.52%,
+    #7f88d9 15.03%,
+    #8d7cdd 24.54%,
+    #a779e1 34.05%,
+    #c476e5 43.55%,
+    #e573e9 53.06%,
+    #ed70cf 62.57%,
+    #f06eae 72.08%,
+    #f46b8a 81.59%,
+    #f86e68 91.09%,
+    #fb9366 100.6%,
+    #ffbc63 110.11%
+  );
+  background-size: 100% 3000%;
+  animation: gradient 2s ease infinite alternate-reverse;
+  display: none;
+}
+.SearchInput:focus + .Search-border {
+  display: flex;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+@media screen and (min-width: 640px) {
+  .Search {
+    width: 358px;
+  }
+}

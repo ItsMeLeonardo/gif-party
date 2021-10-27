@@ -1,0 +1,29 @@
+.Navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.Navbar,
+.NavbarItems {
+  display: flex;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.NavbarItems {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  --size: 54px;
+  min-height: var(--size);
+  min-width: var(--size);
+  box-shadow: var(--shadow-dark);
+  background: url("../../static/icons/logo-mobile.svg") center no-repeat;
+  cursor: pointer;
+}
