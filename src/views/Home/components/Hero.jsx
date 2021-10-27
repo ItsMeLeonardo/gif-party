@@ -1,28 +1,44 @@
 import Button from "../../../components/Button";
+import Tooltip from "../../../components/Tooltip";
 import useTrending from "../../../hooks/useTrending";
 
 export default function Hero() {
+  const {
+    trends: [trending],
+  } = useTrending({ limit: 1 });
 
-  const { trends:[trending] } = useTrending({limit: 1});
-
-  //TODO: convert the tooltip to component and link to social media
   return (
     <main className="Hero">
       {/* <!-- ========== networks ========== --> */}
       <section className="SocialMedia">
         <ul className="SocialIcons">
-          <li className="SocialIcon TooltipContainer">
-            <Button src="dribbble.svg"/>
-            <span className="Tooltip right"> Dribbble </span>
-          </li>
-          <li className="SocialIcon TooltipContainer">
-            <Button src="linkedin.svg"/>
-            <span className="Tooltip right"> LinkedIn </span>
-          </li>
-          <li className="SocialIcon TooltipContainer">
-            <Button src="github.svg"/>
-            <span className="Tooltip right"> Github </span>
-          </li>
+          <Tooltip 
+            className="SocialIcon"
+            content="Dribbble"
+            position="right"
+            to="https://dribbble.com/FrontenDaleo"
+          >
+            <Button src="dribbble.svg" />
+          </Tooltip>
+
+          <Tooltip 
+            className="SocialIcon"
+            content="LinkedIn"
+            position="right"
+            to="https://www.linkedin.com/in/leonardo-cruces-b4b142203/"
+          >
+            <Button src="linkedin.svg" />
+          </Tooltip>
+
+          <Tooltip 
+            className="SocialIcon"
+            content="Github"
+            position="right"
+            to="https://github.com/ItsMeLeonardo"
+          >
+            <Button src="github.svg" />
+          </Tooltip>
+
         </ul>
       </section>
 
