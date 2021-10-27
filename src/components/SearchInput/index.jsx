@@ -12,7 +12,12 @@ export default function SearchInput() {
       />
       <span className="Search-border"></span>
       <span className="SearchLabel">search a gif</span>
-      <i className="SearchIcon"></i>
+      <object
+        className="SearchIcon"
+        type="image/svg+xml"
+        data={`src/static/icons/search-desktop.svg`}
+      ></object>
+
     </label>
   );
 }

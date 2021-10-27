@@ -1,13 +1,18 @@
 export default async function CallApi( params ) {
   const {url, method, body, headers} = params;
+
+  const urlWithParameter = url.includes( '?' ) 
+    ? `${url}&api_key=${apiKey}` 
+    : `${url}?api_key=${apiKey}`;
+
+    console.log('---------', urlWithParameter);
   
   try {
-    const categories = await fetch( `${url}?api_key=${apiKey}`, {
+    const categories = await fetch( urlWithParameter, {
       method,
       body,
       headers,
     } );
-
     const json = await categories.json();
     return json.data;
 

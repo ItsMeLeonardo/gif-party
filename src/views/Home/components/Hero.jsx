@@ -1,23 +1,26 @@
 import Button from "../../../components/Button";
+import useTrending from "../../../hooks/useTrending";
 
 export default function Hero() {
-  //TODO: convert the tooltip to component
+
+  const { trends:[trending] } = useTrending({limit: 1});
+
+  //TODO: convert the tooltip to component and link to social media
   return (
     <main className="Hero">
       {/* <!-- ========== networks ========== --> */}
       <section className="SocialMedia">
         <ul className="SocialIcons">
           <li className="SocialIcon TooltipContainer">
-            <Button src="src/static/icons/dribbble.svg"/>
+            <Button src="dribbble.svg"/>
             <span className="Tooltip right"> Dribbble </span>
           </li>
           <li className="SocialIcon TooltipContainer">
-            <Button src="src/static/icons/linkedin.svg"/>
-
+            <Button src="linkedin.svg"/>
             <span className="Tooltip right"> LinkedIn </span>
           </li>
           <li className="SocialIcon TooltipContainer">
-            <Button src="src/static/icons/github.svg"/>
+            <Button src="github.svg"/>
             <span className="Tooltip right"> Github </span>
           </li>
         </ul>
@@ -27,8 +30,8 @@ export default function Hero() {
       <div className="HeroImageContent overlayGradient">
         <img
           //the src is from API
-          src="https://picsum.photos/800/800"
-          alt="gif of this moment"
+          src={trending?.image}
+          alt={trending?.title}
           className="HeroImage"
         />
         <h1 className="HeroPhrase">

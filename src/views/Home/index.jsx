@@ -7,7 +7,6 @@ Trending;
 import "./style.css";
 
 export default function Home() {
-
   return (
     <>
       <Navbar />
@@ -16,7 +15,11 @@ export default function Home() {
         <i className="scrollIcon"></i>
         <a href="#trending" className="btn white">
           <span className="text-gradient">scroll</span>
-          <i className="arrowIcon"></i>
+          <object
+            className="arrowIcon"
+            type="image/svg+xml"
+            data={`src/static/icons/arrow-down.svg`}
+          ></object>
         </a>
       </div>
 

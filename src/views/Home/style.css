@@ -155,7 +155,11 @@
 .smallContainer {
   grid-column: span 5;
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  /* gap: 10px; */
+}
+.small {
+  width: 32.5%;
 }
 @media screen and (min-width: 640px) {
   .TrendingContent {

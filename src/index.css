@@ -152,3 +152,6 @@ body {
 .TooltipContainer:hover .Tooltip {
   opacity: 1;
 }
+svg {
+  cursor: pointer;
+}

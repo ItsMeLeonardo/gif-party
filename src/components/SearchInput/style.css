@@ -38,7 +38,7 @@
 .SearchIcon {
   --size: 18px;
   position: absolute;
-  background: url("../assets/search-mobile.svg") center no-repeat;
+  background: url("../../static/icons/search-desktop.svg") center no-repeat;
   width: var(--size);
   height: var(--size);
   right: 0.5rem;
