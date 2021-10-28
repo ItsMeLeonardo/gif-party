@@ -1,7 +1,10 @@
 import Button from "../Button";
 import SearchInput from "../SearchInput";
+import Tooltip from "../Tooltip";
 
 import "./style.css";
+
+// [_] change to object to img add source           <img src="" alt="" srcSet/>
 
 export default function Navbar() {
   return (
@@ -10,17 +13,22 @@ export default function Navbar() {
         <li className="NavbarItem">
           <object
             className="logo"
-            type="image/svg+xml"
+            type="image/svg"
             data={`src/static/icons/logo.svg`}
           ></object>
         </li>
         <li className="NavbarItem">
           <SearchInput />
         </li>
-        <li className="NavbarItem TooltipContainer">
+
+        <Tooltip
+          className="NavbarItem"
+          position="left"
+          content="Gif random"
+          to="/details/radom"
+        >
           <Button src="random-icon.svg" />
-          <span className="Tooltip left"> gif random </span>
-        </li>
+        </Tooltip>
       </ul>
     </nav>
   );
