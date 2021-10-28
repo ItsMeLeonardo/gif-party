@@ -1,0 +1,36 @@
+.Result {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  height: 190px;
+}
+.ResultName {
+  position: absolute;
+  color: white;
+  bottom: -2.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  transition: .5s bottom ease-in-out;
+  z-index: 10;
+}
+.Result:hover .ResultName{
+  bottom: .5rem;
+}
+.overlayGradient::before {
+  transition: top 0.5s ease, left .4s ease, scale .2s ease, transform .5s ease;
+}
+.Result:hover.Result.overlayGradient::before {
+  top: 85%;
+  backdrop-filter: blur(20px);
+  transform: rotate(7deg);
+  left: -10%;
+  scale: 1.2;
+}
+@media screen and (min-width: 768px) {
+  .Result {
+    height: 305px;
+  }
+}
+  

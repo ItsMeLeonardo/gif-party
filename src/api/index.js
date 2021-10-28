@@ -5,8 +5,6 @@ export default async function CallApi( params ) {
     ? `${url}&api_key=${apiKey}` 
     : `${url}?api_key=${apiKey}`;
 
-    console.log('---------', urlWithParameter);
-  
   try {
     const categories = await fetch( urlWithParameter, {
       method,

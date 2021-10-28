@@ -20,7 +20,7 @@
   font-size: 14px;
   z-index: 10;
   width: 5rem;
-  transition: opacity 0.5s ease-in-out, width 0.6s ease-in-out;
+  transition: opacity 0.5s ease-in-out, z-index 0.6s ease-in-out;
 }
 .SearchInput {
   padding: 0.5rem 0.5rem 0.5rem 0.8rem;
@@ -29,10 +29,11 @@
 }
 .SearchInput:focus + .SearchLabel {
   opacity: 0;
-  width: 0;
+  z-index: -1;
 }
 .SearchInput:not(:placeholder-shown) ~ .SearchLabel {
   opacity: 0;
+  z-index: -1;
 }
 
 .SearchIcon {

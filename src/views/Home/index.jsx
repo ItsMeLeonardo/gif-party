@@ -7,6 +7,7 @@ Trending;
 import "./style.css";
 
 export default function Home() {
+  //TODO: easy loading for trending and categories
   return (
     <>
       <Navbar />

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import CallApi from "../api"
+import filterDataGif from "../utils/filterDataOfGif"
 
 const TRENDING_URL = 'https://api.giphy.com/v1/gifs/trending?rating=g'
 
@@ -16,12 +17,3 @@ export default function useTrending({ limit = 1 }) {
   return {trends}
 }
 
-const filterDataGif = (data) => {
-  return {
-    id: data.id,
-    image: data.images.original.webp, 
-    url: data.url,
-    title: data.title,
-    dateTime: data.import_datetime 
-  }
-}
