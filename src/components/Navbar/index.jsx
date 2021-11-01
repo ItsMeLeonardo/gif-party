@@ -13,7 +13,7 @@ export default function Navbar() {
         <li className="NavbarItem">
           <object
             className="logo"
-            type="image/svg"
+            type="image/svg+xml"
             data={`src/static/icons/logo.svg`}
           ></object>
         </li>

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import CallApi from "../api";
+import GifContext from "../context/GifContext";
 import filterDataGif from "../utils/filterDataOfGif";
 
 const SEARCH_URL =
@@ -7,9 +8,7 @@ const SEARCH_URL =
 
 export function useGifs({ keyword }) {
   const [loading, setLoading] = useState(false);
-  const [gifs, setGifs] = useState([]);
-
-  console.log("use", keyword);
+  const { gifs, setGifs } = useContext(GifContext);
 
   const url = `${SEARCH_URL}&q=${keyword}`;
 
@@ -19,7 +18,7 @@ export function useGifs({ keyword }) {
       setGifs(res.map(filterDataGif));
       setLoading(false);
     });
-  }, [keyword]);
+  }, [keyword, setGifs]);
 
   return { loading, gifs };
 }

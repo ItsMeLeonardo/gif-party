@@ -1,11 +1,15 @@
-import './App.css'
-import Routes from './routes'
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { GifContextProvider } from "./context/GifContext";
+import Routes from "./routes";
 
 function App() {
-
   return (
-    <Routes />
-  )
+    <GifContextProvider>
+      <Navbar />
+      <Routes />
+    </GifContextProvider>
+  );
 }
 
-export default App
+export default App;

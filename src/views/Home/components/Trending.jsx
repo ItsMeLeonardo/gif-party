@@ -4,7 +4,6 @@ export default function Trending() {
   const limit = 6;
 
   const { trends } = useTrending({ limit });
-  console.log(trends);
 
   //get trending
   return (

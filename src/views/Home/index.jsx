@@ -10,7 +10,7 @@ export default function Home() {
   //TODO: easy loading for trending and categories
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <div className="scroll">
         <i className="scrollIcon"></i>
