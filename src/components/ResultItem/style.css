@@ -7,19 +7,20 @@
 .ResultName {
   position: absolute;
   color: white;
-  bottom: -2.5rem;
+  bottom: -3.5rem;
   left: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 0.02em;
-  transition: .5s bottom ease-in-out;
+  transition: 0.5s bottom ease-in-out;
   z-index: 10;
 }
-.Result:hover .ResultName{
-  bottom: .5rem;
+.Result:hover .ResultName {
+  bottom: 0.5rem;
 }
 .overlayGradient::before {
-  transition: top 0.5s ease, left .4s ease, scale .2s ease, transform .5s ease;
+  transition: top 0.5s ease, left 0.4s ease, scale 0.2s ease,
+    transform 0.5s ease;
 }
 .Result:hover.Result.overlayGradient::before {
   top: 85%;
@@ -33,4 +34,3 @@
     height: 305px;
   }
 }
-  

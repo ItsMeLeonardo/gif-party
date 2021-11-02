@@ -1,40 +1,41 @@
-import { Subtitle, TextDescription } from "../../components/TextSeparator";
-import Categories from "./components/Categories";
-import Hero from "./components/Hero";
-import Trending from "./components/Trending";
-import CategoryItem from "../../components/CategoryItem";
-import useCategories from "../../hooks/useCategories";
+import { Subtitle, TextDescription } from '../../components/TextSeparator'
+import Categories from './components/Categories'
+import Hero from './components/Hero'
+import Trending from './components/Trending'
+import CategoryItem from '../../components/CategoryItem'
+import useCategories from '../../hooks/useCategories'
 
-import "./style.css";
+import './style.css'
 
 export default function Home() {
   // TODO: easy loading for trending and categories
   // FIXME: fix the loading for trending and categories
   // FIXME: change the icon to img with srcSet
 
-  const { categories, isLoading } = useCategories();
+  const { categories, isLoading } = useCategories()
 
   return (
     <>
       <Hero />
 
-      <div className="scroll">
-        <i className="scrollIcon"></i>
-        <a href="#trending" className="btn white">
-          <span className="text-gradient">scroll</span>
+      <div className='scroll'>
+        <i className='scrollIcon' />
+        <a href='#trending' className='btn white'>
+          <span className='text-gradient'>scroll</span>
           <object
-            className="arrowIcon"
-            type="image/svg+xml"
-            data={`src/static/icons/arrow-down.svg`}
-          ></object>
+            title='arrowIcon'
+            className='arrowIcon'
+            type='image/svg+xml'
+            data='src/static/icons/arrow-down.svg'
+          />
         </a>
       </div>
 
-      <Subtitle content={"Trending"} id="trending" />
+      <Subtitle content='Trending' id='trending' />
 
       <Trending />
 
-      <Subtitle content={"Categories"} />
+      <Subtitle content='Categories' />
       <TextDescription>Choose a category that interesting you</TextDescription>
 
       <Categories>
@@ -47,5 +48,5 @@ export default function Home() {
         )}
       </Categories>
     </>
-  );
+  )
 }

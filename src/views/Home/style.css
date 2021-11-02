@@ -30,11 +30,13 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  top:0;
+  top: 0;
   background: var(--main-gradient);
   mix-blend-mode: lighten;
   opacity: 0.75;
   z-index: 1;
+  transition: top 0.5s ease, left 0.4s ease, scale 0.2s ease,
+    transform 0.5s ease;
 }
 .HeroPhrase {
   text-transform: uppercase;
@@ -105,7 +107,7 @@
     animation: levitation 2s infinite alternate-reverse ease-in-out;
     background: url("../../static/icons/scroll.svg") center no-repeat;
   }
-  @keyframes levitation { 
+  @keyframes levitation {
     0% {
       transform: translateY(0);
     }
