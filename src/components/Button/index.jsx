@@ -1,15 +1,16 @@
 import "./style.css";
 
-export default function Button({ type, src }) {
+export default function Button({ type, srcOfIcon }) {
   const searchIcon = "search-mobile.svg";
 
-  //TODO: and the white btn add if the src is not null
+  //TODO: add type of button, => type =[white, black, icon, ...]
+
   return (
     <button className="btn icon">
       <object
         className="ButtonIcon"
         type="image/svg+xml"
-        data={`src/static/icons/${src || searchIcon}`}
+        data={`src/static/icons/${srcOfIcon || searchIcon}`}
       ></object>
     </button>
   );

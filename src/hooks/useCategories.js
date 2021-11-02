@@ -9,11 +9,11 @@ export default function useCategories() {
 
   useEffect(() => {
     setIsLoading(true);
-    CallApi({url:URL_CATEGORIES}).then((res) => {
-      setCategories(res)
-      setIsLoading(false)
-    })
-  }, [])
+    CallApi({ url: URL_CATEGORIES }).then((category) => {
+      setCategories(category);
+      setIsLoading(false);
+    });
+  }, []);
 
-  return {categories, isLoading};
-} 
+  return { categories, isLoading };
+}

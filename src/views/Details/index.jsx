@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useRoute } from "wouter";
+import { Subtitle, TextDescription } from "../../components/TextSeparator";
 import GifContext from "../../context/GifContext";
 import { useGifRandom } from "../../hooks/useGifRandom";
 
@@ -7,27 +8,24 @@ import "./style.css";
 
 export default function Details() {
   const { gifs } = useContext(GifContext);
+  const [, { id }] = useRoute("/detail/:id");
 
-  const [match, { id }] = useRoute("/detail/:id");
-
-  const [gif] = useState(gifs.find((gif) => gif.id === id));
-
-  if (id === "random") {
-    useGifRandom();
-  }
+  const gif =
+    id === "random" ? useGifRandom() : gifs.find((gif) => gif.id === id);
 
   return (
     <div className="container">
-      <h3 className="subtitle">{gif?.title}</h3>
+      <Subtitle content={gif?.title} />
+
       <div className="Detail">
         <div className="GifContent">
-          <p className="textDescription">
+          <TextDescription>
             This gif was imported in {gif?.dateTime}
-          </p>
+          </TextDescription>
           <img src={gif?.image} alt={gif?.title} className="mainGif" />
         </div>
         <div className="similarGif">
-          <p className="textDescription">Similar gifs</p>
+          <TextDescription>Other Gifs</TextDescription>
           <div className="Gifs">
             {gifs
               .filter((_, index) => index < 4)

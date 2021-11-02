@@ -4,7 +4,7 @@ import Tooltip from "../Tooltip";
 
 import "./style.css";
 
-// [_] change to object to img add source           <img src="" alt="" srcSet/>
+// [_] change to object to img add source           <img src="" alt="" srcSet='...'/>
 
 export default function Navbar() {
   return (
@@ -25,9 +25,9 @@ export default function Navbar() {
           className="NavbarItem"
           position="left"
           content="Gif random"
-          to="/details/radom"
+          to="/detail/random"
         >
-          <Button src="random-icon.svg" />
+          <Button srcOfIcon="random-icon.svg" />
         </Tooltip>
       </ul>
     </nav>

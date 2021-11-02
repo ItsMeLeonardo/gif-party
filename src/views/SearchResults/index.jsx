@@ -1,13 +1,3 @@
-/**
- * [X]add body
- * [X]add styles
- * [X]create card component
- * [X]call the API
- *
- * [_]add function to view details
- * [_]infinite scroll
- */
-// import Navbar from "../../components/Navbar";
 import { useLocation, useRoute } from "wouter";
 import { Subtitle } from "../../components/TextSeparator";
 import ResultItem from "../../components/ResultItem";
@@ -26,15 +16,22 @@ export default function SearchResults() {
   const { name: keyword } = params;
   const { gifs, loading } = useGifs({ keyword });
 
+  // TODO: [_]infinite scroll
+  // FIXME: replace to component Loading
+  // FIXME: change [ResultItem] with [generic Link] use component composition
   return (
     <>
-      <Subtitle content={`Result of ${keyword}`} />
+      <Subtitle content={`Result of ${decodeURI(keyword)}`} />
 
-      <div className="Results">
-        {gifs.map((gif) => (
-          <ResultItem key={gif.id} {...gif} />
-        ))}
-      </div>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="Results">
+          {gifs.map((gif) => (
+            <ResultItem key={gif.id} {...gif} />
+          ))}
+        </div>
+      )}
     </>
   );
 }

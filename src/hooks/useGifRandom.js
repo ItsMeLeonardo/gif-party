@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CallApi from "../api";
 import filterDataGif from "../utils/filterDataOfGif";
 
@@ -8,10 +8,11 @@ export function useGifRandom() {
   const [gifRandom, setGifRandom] = useState();
 
   useEffect(() => {
-    CallApi(RANDOM_URL).then((gif) => {
+    CallApi({ url: RANDOM_URL }).then((gif) => {
       setGifRandom(filterDataGif(gif));
     });
   }, []);
 
-  return { gifRandom };
+  // return { gifRandom };
+  return gifRandom;
 }

@@ -1,24 +1,19 @@
-import { useState } from 'react';
-import { useLocation } from 'wouter';
-import './style.css'
+import { useState } from "react";
+import { useLocation } from "wouter";
+import "./style.css";
 
 export default function SearchInput() {
+  const [keyboard, setKeyboard] = useState("");
+  const [, setLocation] = useLocation();
 
-  const [keyboard, setKeyboard] = useState('')
-  const [location, setLocation] = useLocation()
-
-  const handleSearchChange = event => {
-    setKeyboard(event.target.value)
-  }
-
-  const handleSearchGif = event => {
-    event.preventDefault()
-    console.log(location);
-    setLocation(`/search/${keyboard}`)
-  }
+  const handleSearchChange = (event) => setKeyboard(event.target.value);
+  const handleSubmitSearchGif = (event) => {
+    event.preventDefault();
+    setLocation(`/search/${keyboard}`);
+  };
 
   return (
-    <form htmlFor="search" className="Search" onSubmit={handleSearchGif}>
+    <form className="Search" onSubmit={handleSubmitSearchGif}>
       <input
         type="search"
         name="search-gif"
@@ -29,13 +24,14 @@ export default function SearchInput() {
         onChange={handleSearchChange}
       />
       <span className="Search-border"></span>
-      <span className="SearchLabel">search a gif</span>
+      <label htmlFor="search" className="SearchLabel">
+        search a gif
+      </label>
       <object
         className="SearchIcon"
         type="image/svg+xml"
         data={`src/static/icons/search-desktop.svg`}
       ></object>
-
     </form>
   );
 }
