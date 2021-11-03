@@ -1,8 +1,7 @@
-import useCategories from '../../../hooks/useCategories'
-import { useNearScreen } from '../../../hooks/useNearScreen'
 import CategoryItem from '../../../components/CategoryItem'
+import useCategories from '../../../hooks/useCategories'
 
-function Categories() {
+export default function Categories() {
   const { categories, isLoading } = useCategories()
 
   return (
@@ -15,15 +14,5 @@ function Categories() {
         ))
       )}
     </>
-  )
-}
-
-export function LazyCategories() {
-  const { isNearScreen, fromRef } = useNearScreen('100px')
-
-  return (
-    <section className='Categories' ref={fromRef}>
-      {isNearScreen && <Categories fromRef={fromRef} />}
-    </section>
   )
 }

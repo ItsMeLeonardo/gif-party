@@ -1,8 +1,7 @@
 import ResultItem from '../../../components/ResultItem'
 import useTrending from '../../../hooks/useTrending'
-import { useNearScreen } from '../../../hooks/useNearScreen'
 
-export function Trending() {
+export default function Trending() {
   const limit = 6
 
   const { trends } = useTrending({ limit })
@@ -73,10 +72,4 @@ export function Trending() {
       </div>
     </section>
   )
-}
-
-export function LazyTrending() {
-  const { isNearScreen, fromRef } = useNearScreen('10px')
-
-  return <div ref={fromRef}>{isNearScreen && <Trending />}</div>
 }

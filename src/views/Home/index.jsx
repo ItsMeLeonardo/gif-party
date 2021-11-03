@@ -1,7 +1,7 @@
 import { Subtitle, TextDescription } from '../../components/TextSeparator'
-import { LazyCategories } from './components/Categories'
+import { LazyCategories } from './components/LazyCategories'
 import Hero from './components/Hero'
-import { LazyTrending } from './components/Trending'
+import { LazyTrending } from './components/LazyTrending'
 
 import './style.css'
 
