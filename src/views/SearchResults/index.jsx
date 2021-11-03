@@ -1,9 +1,15 @@
+import { useEffect, useRef, useCallback } from 'react'
 import { useLocation, useRoute } from 'wouter'
+import debounce from 'just-debounce-it'
 import { Subtitle } from '../../components/TextSeparator'
 import ResultItem from '../../components/ResultItem'
 import { useGifs } from '../../hooks/useGifs'
+import { useNearScreen } from '../../hooks/useNearScreen'
 
 import './style.css'
+
+// FIXME: replace to component Loading
+// TODO: change debounce  to throttle
 
 export default function SearchResults() {
   const [match, params] = useRoute('/search/:name')
@@ -14,11 +20,24 @@ export default function SearchResults() {
   }
 
   const { name: keyword } = params
-  const { gifs, loading } = useGifs({ keyword })
+  const { gifs, loading, setPage } = useGifs({ keyword, limit: 12 })
+  const externalRef = useRef()
+  const { isNearScreen } = useNearScreen({
+    distance: '100px',
+    externalRef: loading ? null : externalRef,
+    once: false,
+  })
 
-  // TODO: [_]infinite scroll
-  // FIXME: replace to component Loading
-  // FIXME: change [ResultItem] with [generic Link] use component composition
+  const debounceHandleNextPage = useCallback(
+    debounce(() => setPage((prevPage) => prevPage + 1), 200),
+    []
+  )
+
+  useEffect(() => {
+    if (isNearScreen) {
+      debounceHandleNextPage()
+    }
+  }, [isNearScreen, debounceHandleNextPage])
 
   return (
     <>
@@ -27,14 +46,21 @@ export default function SearchResults() {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className='Results'>
-          {gifs.map(({ id, image, title }) => (
-            <ResultItem key={id} id={id} className='Result overlayGradient'>
-              <img src={image} alt={title} className='TrendingImg' />
-              <h4 className='ResultName'>{title}</h4>
-            </ResultItem>
-          ))}
-        </div>
+        <>
+          <div className='Results'>
+            {gifs.map(({ id, image, title }) => (
+              <ResultItem
+                key={`id:${id}+${title}=>${keyword}`}
+                id={id}
+                className='Result overlayGradient'
+              >
+                <img src={image} alt={title} className='TrendingImg' />
+                <h4 className='ResultName'>{title}</h4>
+              </ResultItem>
+            ))}
+          </div>
+          <div className='viewer' ref={externalRef} />
+        </>
       )}
     </>
   )
