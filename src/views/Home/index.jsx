@@ -1,18 +1,13 @@
 import { Subtitle, TextDescription } from '../../components/TextSeparator'
-import Categories from './components/Categories'
+import { LazyCategories } from './components/Categories'
 import Hero from './components/Hero'
-import Trending from './components/Trending'
-import CategoryItem from '../../components/CategoryItem'
-import useCategories from '../../hooks/useCategories'
+import { LazyTrending } from './components/Trending'
 
 import './style.css'
 
 export default function Home() {
-  // TODO: easy loading for trending and categories
   // FIXME: fix the loading for trending and categories
   // FIXME: change the icon to img with srcSet
-
-  const { categories, isLoading } = useCategories()
 
   return (
     <>
@@ -33,20 +28,12 @@ export default function Home() {
 
       <Subtitle content='Trending' id='trending' />
 
-      <Trending />
+      <LazyTrending />
 
       <Subtitle content='Categories' />
       <TextDescription>Choose a category that interesting you</TextDescription>
 
-      <Categories>
-        {isLoading ? (
-          <h1>Loading</h1>
-        ) : (
-          categories?.map((category) => (
-            <CategoryItem name={category.name} key={category.name} />
-          ))
-        )}
-      </Categories>
+      <LazyCategories />
     </>
   )
 }
