@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
 import { useLocation, useRoute } from 'wouter'
 import debounce from 'just-debounce-it'
 import { Subtitle } from '../../components/TextSeparator'

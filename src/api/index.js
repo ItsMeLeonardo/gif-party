@@ -16,7 +16,7 @@ export default async function CallApi(params) {
     const json = await categories.json()
     return json.data
   } catch (error) {
-    console.log(error)
+    console.log('error in call to API', error)
     Promise.reject(new Error('Error in call API'))
   }
 }
