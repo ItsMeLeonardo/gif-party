@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet'
 import { useRoute } from 'wouter'
 import ResultItem from '../../components/ResultItem'
 import { Subtitle, TextDescription } from '../../components/TextSeparator'
@@ -6,12 +7,18 @@ import { useGifDetail } from '../../hooks/useGifDetail'
 import './style.css'
 
 export default function Details() {
-  // FIXME: create a new hook, useDetail(id) if not found the id call the api or use the local storage or valid if the gif are random
   const [, { id }] = useRoute('/detail/:id')
   const [gif, gifs] = useGifDetail(id)
 
+  const title = gif?.title.trim().length > 0 ? gif.title : 'Anonymous Gif'
+  const description = `Details of this fantastic gif ${title}`
+
   return (
     <div className='container'>
+      <Helmet>
+        <title>{title}</title>
+        <meta name='description' content={description} />
+      </Helmet>
       <Subtitle content={gif?.title} />
 
       <div className='Detail'>

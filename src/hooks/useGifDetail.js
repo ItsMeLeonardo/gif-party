@@ -6,7 +6,7 @@ import CallApi from '../api'
 
 const RANDOM_URL = 'https://api.giphy.com/v1/gifs/random?rating=g'
 
-export function useGifDetail(keyword) {
+export function useGifDetail(id) {
   const { gifs, setGifs } = useContext(GifContext)
   const [gifDetail, setDetailGif] = useState(null)
 
@@ -19,19 +19,19 @@ export function useGifDetail(keyword) {
       })
     }
 
-    if (keyword === 'random') {
+    if (id === 'random') {
       CallApi({ url: RANDOM_URL }).then((gifRandom) => {
         setDetailGif(filterDataGif(gifRandom))
       })
     } else {
-      const gif = gifs.find(({ id }) => id === keyword)
+      const gif = gifs.find((gifContext) => gifContext.id === id)
       if (gif) {
         setDetailGif(gif)
       } else {
-        getGifById(keyword).then(setDetailGif)
+        getGifById(id).then(setDetailGif)
       }
     }
-  }, [keyword])
+  }, [id])
 
   return [gifDetail, gifs]
 }

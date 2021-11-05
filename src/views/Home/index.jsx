@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet'
 import { Subtitle, TextDescription } from '../../components/TextSeparator'
 import { LazyCategories } from './components/LazyCategories'
 import Hero from './components/Hero'
@@ -8,9 +9,16 @@ import './style.css'
 export default function Home() {
   // FIXME: fix the loading for trending and categories
   // FIXME: change the icon to img with srcSet
+  const description =
+    'The best web app for search gifs, this page use react, css, js, vite, vercel, giphy API'
 
   return (
     <>
+      <Helmet>
+        <title>Gif Party 🥳</title>
+        <meta name='description' content={description} />
+      </Helmet>
+
       <Hero />
 
       <div className='scroll'>

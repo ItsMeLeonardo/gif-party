@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react'
 import { useLocation, useRoute } from 'wouter'
 import debounce from 'just-debounce-it'
+import { Helmet } from 'react-helmet'
 import { Subtitle } from '../../components/TextSeparator'
 import ResultItem from '../../components/ResultItem'
 import { useGifs } from '../../hooks/useGifs'
@@ -44,9 +45,21 @@ export default function SearchResults() {
       <Subtitle content={`Result of ${decodeURI(keyword)}`} />
 
       {loading ? (
-        <div>Loading...</div>
+        <>
+          <Helmet>
+            <title>Loading...</title>
+          </Helmet>
+          <div>Loading...</div>
+        </>
       ) : (
         <>
+          <Helmet>
+            <title>{`results for ${decodeURI(keyword)}`}</title>
+            <meta
+              name='description'
+              content='The best results for funny gifs, and more gifs !!'
+            />
+          </Helmet>
           <div className='Results'>
             {gifs.map(({ id, image, title }) => (
               <ResultItem
