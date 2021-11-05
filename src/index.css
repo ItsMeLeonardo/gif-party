@@ -17,6 +17,9 @@ img {
   object-fit: cover;
   height: 100%;
 }
+picture {
+  display: flex;
+}
 :root {
   /*Colors*/
   --main-gradient: linear-gradient(

@@ -42,7 +42,9 @@ export default function SearchResults() {
 
   return (
     <>
-      <Subtitle content={`Result of ${decodeURI(keyword)}`} />
+      <Subtitle>
+        Result of <span className='text-gradient'>{decodeURI(keyword)}</span>
+      </Subtitle>
 
       {loading ? (
         <>

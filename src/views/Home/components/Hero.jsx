@@ -22,7 +22,7 @@ export default function Hero() {
               position='right'
               to={network.url}
             >
-              <Button srcOfIcon={network.icon} />
+              <Button icon={network.icon} />
             </Tooltip>
           ))}
         </ul>

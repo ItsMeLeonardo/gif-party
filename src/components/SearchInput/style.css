@@ -39,14 +39,13 @@
 .SearchIcon {
   --size: 18px;
   position: absolute;
-  background: url("../../static/icons/search-desktop.svg") center no-repeat;
   width: var(--size);
   height: var(--size);
   right: 0.5rem;
 }
 
 .Search-border {
-  content: "";
+  content: '';
   position: absolute;
   width: calc(100% + 4px);
   height: calc(100% + 4px);

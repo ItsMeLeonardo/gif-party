@@ -19,7 +19,7 @@ export default function Details() {
         <title>{title}</title>
         <meta name='description' content={description} />
       </Helmet>
-      <Subtitle content={gif?.title} />
+      <Subtitle>{gif?.title}</Subtitle>
 
       <div className='Detail'>
         <div className='GifContent'>

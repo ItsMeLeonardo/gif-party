@@ -8,7 +8,7 @@ import './style.css'
 
 export default function Home() {
   // FIXME: fix the loading for trending and categories
-  // FIXME: change the icon to img with srcSet
+
   const description =
     'The best web app for search gifs, this page use react, css, js, vite, vercel, giphy API'
 
@@ -25,20 +25,25 @@ export default function Home() {
         <i className='scrollIcon' />
         <a href='#trending' className='btn white'>
           <span className='text-gradient'>scroll</span>
-          <object
-            title='arrowIcon'
-            className='arrowIcon'
-            type='image/svg+xml'
-            data='src/static/icons/arrow-down.svg'
-          />
+          <picture className='arrowIcon'>
+            <source
+              type='image/png'
+              srcSet='src/static/images/arrow-down.png'
+            />
+            <source
+              type='image/webp'
+              srcSet='src/static/images/arrow-down.webp'
+            />
+            <img src='src/static/icons/arrow-down.svg' alt='arrow icon' />
+          </picture>
         </a>
       </div>
 
-      <Subtitle content='Trending' id='trending' />
+      <Subtitle id='trending'>Trending</Subtitle>
 
       <LazyTrending />
 
-      <Subtitle content='Categories' />
+      <Subtitle>Categories</Subtitle>
       <TextDescription>Choose a category that interesting you</TextDescription>
 
       <LazyCategories />
