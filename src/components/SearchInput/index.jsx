@@ -1,57 +1,27 @@
-import { useReducer, useState } from 'react'
 import { useLocation } from 'wouter'
+import useForm from './hooks'
 import './style.css'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
-const ACTIONS = {
-  UPDATE_KEYWORD: '',
-  UPDATE_RATING: '',
-}
-
-const reducer = (state, action) => {
-  const { type, payload } = action
-
-  switch (type) {
-    case ACTIONS.UPDATE_KEYWORD:
-      return {
-        ...state,
-        keyword: payload,
-      }
-
-    case ACTIONS.UPDATE_RATING:
-      return {
-        ...state,
-        rating: payload,
-      }
-
-    default:
-      throw new Error(`Unhandled action type: ${type}`)
-  }
-}
-
 export default function SearchInput() {
-  const [, setLocation] = useLocation()
+  const { keyword, rating, changeKeyword, changeRating } = useForm(
+    '',
+    RATINGS[0]
+  )
 
-  const [state, dispatch] = useReducer(reducer, {
-    keyword: '',
-    rating: RATINGS[0],
-  })
-
-  const { keyword, rating } = state
-
-  const handleSearchChange = (event) => {
-    const newKeyword = event.target.value
-    dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: newKeyword })
-  }
-  const handleSubmitSearchGif = (event) => {
-    event.preventDefault()
-    setLocation(`/search/${keyword}/${rating}`)
+  const handleChangeKeyword = (event) => {
+    changeKeyword(event.target.value)
   }
 
   const handleChangeRating = (event) => {
-    const newRating = event.target.value
-    dispatch({ type: ACTIONS.UPDATE_RATING, payload: newRating })
+    changeRating(event.target.value)
+  }
+
+  const [, setLocation] = useLocation()
+  const handleSubmitSearchGif = (event) => {
+    event.preventDefault()
+    setLocation(`/search/${keyword}/${rating}`)
   }
 
   return (
@@ -63,7 +33,7 @@ export default function SearchInput() {
         id='search-gif'
         className='SearchInput'
         value={keyword}
-        onChange={handleSearchChange}
+        onChange={handleChangeKeyword}
       />
       <span className='Search-border' />
       <label htmlFor='search-gif' className='SearchLabel'>
