@@ -8,7 +8,7 @@ export default function Routes() {
     <Switch>
       <Route path='/' component={Home} />
 
-      <Route path='/search/:name' component={SearchResults} />
+      <Route path='/search/:name/:rating?' component={SearchResults} />
 
       <Route path='/detail/:id' component={Details} />
     </Switch>

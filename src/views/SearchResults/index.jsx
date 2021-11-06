@@ -13,15 +13,15 @@ import './style.css'
 // TODO: change debounce  to throttle
 
 export default function SearchResults() {
-  const [match, params] = useRoute('/search/:name')
+  const [match, params] = useRoute('/search/:name/:rating')
 
   if (!match) {
     useLocation('/')
     return null
   }
 
-  const { name: keyword } = params
-  const { gifs, loading, setPage } = useGifs({ keyword, limit: 12 })
+  const { name: keyword, rating } = params
+  const { gifs, loading, setPage } = useGifs({ keyword, limit: 12, rating })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({
     distance: '100px',

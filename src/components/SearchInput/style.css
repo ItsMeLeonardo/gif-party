@@ -8,6 +8,8 @@
   min-width: 200px;
   cursor: pointer;
   transition: box-shadow 0.3s ease-in;
+  position: relative;
+  background: var(--pure-white);
 }
 
 .Search:hover {
@@ -24,8 +26,9 @@
 }
 .SearchInput {
   padding: 0.5rem 0.5rem 0.5rem 0.8rem;
-  width: 100%;
+  width: 85%;
   position: relative;
+  box-shadow: 1.5px 0 0 #ed70cf;
 }
 .SearchInput:focus + .SearchLabel {
   opacity: 0;
@@ -41,7 +44,26 @@
   position: absolute;
   width: var(--size);
   height: var(--size);
-  right: 0.5rem;
+  right: 5rem;
+}
+
+.SearchRating-label {
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  right: 0;
+}
+.SearchRating {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  font-weight: 900;
+  font-size: 1.15rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.SearchRating-option {
+  color: #8d7cdd;
 }
 
 .Search-border {

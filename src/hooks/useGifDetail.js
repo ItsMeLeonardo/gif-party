@@ -4,8 +4,6 @@ import { getGifById } from '../utils/getGifById'
 import filterDataGif from '../utils/filterDataOfGif'
 import CallApi from '../api'
 
-const RANDOM_URL = 'https://api.giphy.com/v1/gifs/random?rating=g'
-
 export function useGifDetail(id) {
   const { gifs, setGifs } = useContext(GifContext)
   const [gifDetail, setDetailGif] = useState(null)
@@ -20,7 +18,8 @@ export function useGifDetail(id) {
     }
 
     if (id === 'random') {
-      CallApi({ url: RANDOM_URL }).then((gifRandom) => {
+      const url = 'https://api.giphy.com/v1/gifs/random?rating=g'
+      CallApi({ url }).then((gifRandom) => {
         setDetailGif(filterDataGif(gifRandom))
       })
     } else {
