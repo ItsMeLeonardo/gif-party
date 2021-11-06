@@ -1,0 +1,43 @@
+.Loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes arrows {
+  0%,
+  100% {
+    color: #ffbc63;
+    transform: translateY(0);
+  }
+  50% {
+    color: #82a0d5;
+    transform: translateY(25px);
+  }
+}
+
+.Loading-Letter {
+  --delay: 0s;
+  animation: arrows 1s var(--delay) infinite ease-in;
+}
+.Loading-Letter:nth-child(1) {
+  --delay: 0.1s;
+}
+.Loading-Letter:nth-child(2) {
+  --delay: 0.2s;
+}
+.Loading-Letter:nth-child(3) {
+  --delay: 0.3s;
+}
+.Loading-Letter:nth-child(4) {
+  --delay: 0.4s;
+}
+.Loading-Letter:nth-child(5) {
+  --delay: 0.5s;
+}
+.Loading-Letter:nth-child(6) {
+  --delay: 0.6s;
+}
+.Loading-Letter:nth-child(7) {
+  --delay: 0.7s;
+}

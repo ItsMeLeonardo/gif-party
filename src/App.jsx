@@ -1,8 +1,3 @@
-/**
- * [_]add loading component
- *
- */
-
 import './App.css'
 import Navbar from './components/Navbar'
 import { GifContextProvider } from './context/GifContext'

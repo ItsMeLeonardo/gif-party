@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react'
+import Loading from '../../../components/Loading'
 import { useNearScreen } from '../../../hooks/useNearScreen'
 
 const Categories = React.lazy(() => import('./Categories'))
@@ -8,7 +9,7 @@ export function LazyCategories() {
 
   return (
     <section className='Categories' ref={fromRef}>
-      <Suspense fallback='Loading'>
+      <Suspense fallback={<Loading />}>
         {isNearScreen && <Categories fromRef={fromRef} />}
       </Suspense>
     </section>

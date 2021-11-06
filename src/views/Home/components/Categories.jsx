@@ -1,4 +1,5 @@
 import CategoryItem from '../../../components/CategoryItem'
+import Loading from '../../../components/Loading'
 import useCategories from '../../../hooks/useCategories'
 
 export default function Categories() {
@@ -7,7 +8,7 @@ export default function Categories() {
   return (
     <>
       {isLoading ? (
-        <h1>Loading</h1>
+        <Loading />
       ) : (
         categories?.map((category) => (
           <CategoryItem name={category.name} key={category.name} />

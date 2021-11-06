@@ -6,10 +6,10 @@ import { Subtitle } from '../../components/TextSeparator'
 import ResultItem from '../../components/ResultItem'
 import { useGifs } from '../../hooks/useGifs'
 import { useNearScreen } from '../../hooks/useNearScreen'
+import Loading from '../../components/Loading'
 
 import './style.css'
 
-// FIXME: replace to component Loading
 // TODO: change debounce  to throttle
 
 export default function SearchResults() {
@@ -51,7 +51,7 @@ export default function SearchResults() {
           <Helmet>
             <title>Loading...</title>
           </Helmet>
-          <div>Loading...</div>
+          <Loading />
         </>
       ) : (
         <>
