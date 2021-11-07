@@ -18,6 +18,7 @@ export default function Details() {
       <Helmet>
         <title>{title}</title>
         <meta name='description' content={description} />
+        <link rel='canonical' href='https://gift-party.vercel.app/detail/' />
       </Helmet>
       <Subtitle>{gif?.title}</Subtitle>
 

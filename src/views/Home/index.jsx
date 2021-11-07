@@ -17,6 +17,7 @@ export default function Home() {
       <Helmet>
         <title>Gif Party 🥳</title>
         <meta name='description' content={description} />
+        <link rel='canonical' href='https://gift-party.vercel.app/' />
       </Helmet>
 
       <Hero />
@@ -26,15 +27,9 @@ export default function Home() {
         <a href='#trending' className='btn white'>
           <span className='text-gradient'>scroll</span>
           <picture className='arrowIcon'>
-            <source
-              type='image/png'
-              srcSet='src/static/images/arrow-down.png'
-            />
-            <source
-              type='image/webp'
-              srcSet='src/static/images/arrow-down.webp'
-            />
-            <img src='src/static/icons/arrow-down.svg' alt='arrow icon' />
+            <source type='image/png' srcSet='/images/arrow-down.png' />
+            <source type='image/webp' srcSet='/images/arrow-down.webp' />
+            <img src='/icons/arrow-down.svg' alt='arrow icon' />
           </picture>
         </a>
       </div>

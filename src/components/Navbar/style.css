@@ -24,6 +24,5 @@
   min-height: var(--size);
   min-width: var(--size);
   box-shadow: var(--shadow-dark);
-  background: url("../../static/icons/logo-mobile.svg") center no-repeat;
   cursor: pointer;
 }

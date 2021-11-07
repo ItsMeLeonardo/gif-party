@@ -40,9 +40,9 @@ export default function SearchInput() {
         search a gif
       </label>
       <picture className='SearchIcon'>
-        <source type='image/png' srcSet='src/static/images/search.png' />
-        <source type='image/webp' srcSet='src/static/images/search.webp' />
-        <img src='src/static/icons/search.svg' alt='search-icon' />
+        <source type='image/png' srcSet='/images/search.png' />
+        <source type='image/webp' srcSet='/images/search.webp' />
+        <img src='/icons/search.svg' alt='search-icon' />
       </picture>
 
       <label htmlFor='rating' className='SearchRating-label'>

@@ -26,7 +26,7 @@
   position: relative;
 }
 .overlayGradient::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 100%;
@@ -105,7 +105,8 @@
   }
   .scrollIcon {
     animation: levitation 2s infinite alternate-reverse ease-in-out;
-    background: url("../../static/icons/scroll.svg") center no-repeat;
+    /* background: url('../../../public/icons/scroll.svg') center no-repeat; */
+    background: url('/icons/scroll.svg') center no-repeat;
   }
   @keyframes levitation {
     0% {
@@ -119,7 +120,7 @@
     }
   }
   .arrowIcon {
-    background: url("../../static/icons/arrow-down.svg") center no-repeat;
+    background: url('/icons/arrow-down.svg') center no-repeat;
   }
 }
 

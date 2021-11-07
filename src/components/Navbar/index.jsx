@@ -12,9 +12,9 @@ export default function Navbar() {
         <li className='NavbarItem'>
           <Link href='/'>
             <picture className='logo'>
-              <source type='image/webp' srcSet='src/static/images/logo.webp' />
-              <source type='image/png' srcSet='src/static/images/logo.png' />
-              <img src='src/static/icons/logo.svg' alt='Logo gif party' />
+              <source type='image/webp' srcSet='/images/logo.webp' />
+              <source type='image/png' srcSet='/images/logo.png' />
+              <img src='/icons/logo.svg' alt='Logo gif party' />
             </picture>
             <h4> </h4>
           </Link>

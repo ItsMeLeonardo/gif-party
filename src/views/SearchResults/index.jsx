@@ -50,6 +50,10 @@ export default function SearchResults() {
         <>
           <Helmet>
             <title>Loading...</title>
+            <link
+              rel='canonical'
+              href='https://gift-party.vercel.app/search/'
+            />
           </Helmet>
           <Loading />
         </>
