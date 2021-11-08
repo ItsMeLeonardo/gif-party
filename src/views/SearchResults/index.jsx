@@ -13,14 +13,23 @@ import './style.css'
 // TODO: change debounce  to throttle
 
 export default function SearchResults() {
-  const [match, params] = useRoute('/search/:name/:rating')
+  const [matchByName, paramsByName] = useRoute('/search/:name')
+  const [matchByNameAndCategory, paramsByNameAndCategory] = useRoute(
+    '/search/:name/:rating'
+  )
 
-  if (!match) {
-    useLocation('/')
-    return null
+  let keyword
+  let rating
+
+  if (matchByName) {
+    keyword = paramsByName.name
   }
 
-  const { name: keyword, rating } = params
+  if (matchByNameAndCategory) {
+    keyword = paramsByNameAndCategory.name
+    rating = paramsByNameAndCategory.rating
+  }
+
   const { gifs, loading, setPage } = useGifs({ keyword, limit: 12, rating })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({
@@ -50,10 +59,6 @@ export default function SearchResults() {
         <>
           <Helmet>
             <title>Loading...</title>
-            <link
-              rel='canonical'
-              href='https://gift-party.vercel.app/search/'
-            />
           </Helmet>
           <Loading />
         </>
@@ -61,6 +66,10 @@ export default function SearchResults() {
         <>
           <Helmet>
             <title>{`results for ${decodeURI(keyword)}`}</title>
+            <link
+              rel='canonical'
+              href='https://gift-party.vercel.app/search/'
+            />
             <meta
               name='description'
               content='The best results for funny gifs, and more gifs !!'
