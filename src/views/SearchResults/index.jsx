@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback } from 'react'
-import { useLocation, useRoute } from 'wouter'
+import { useRoute } from 'wouter'
 import debounce from 'just-debounce-it'
 import { Helmet } from 'react-helmet'
 import { Subtitle } from '../../components/TextSeparator'
